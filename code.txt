@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CATEQUESIS | Sagrado Corazón de Jésus</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lumen/bootstrap.min.css" integrity="sha384-VMuWne6iwiifi8iEWNZMw8sDatgb6ntBpBIr67q0rZAyOQwfu/VKpnFntQrjxB5W" crossorigin="anonymous">
+    </head>
+
+<form method="POST" action="/monitor/feed">
+<table class="table">
+	<tr>
+		<td colspan="12" align="center"><h1>Registro de Matriculas</h1></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+
+	</tr>
+	<tr>
+		<td></td>
+		<td><h1>Matricula:</h1></td>
+		<td><input class="form-control" id="matricula" name="matricula"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><h1>Nombre Completo:</h1></td>
+		<td><input class="form-control" id="nombre" name="nombre"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><h1>Edad:</h1></td>
+		<td><input class="form-control" id="edad" name="edad"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><h1>Nombre Tutor(a):</h1></td>
+		<td><input class="form-control" id="tutor" name="tutor"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><h1>Teléfono:</h1></td>
+		<td><input class="form-control" id="telefono" name="telefono"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><button type="submit" class="btn btn-primary">Guardar</button></td>
+		<td></td>
+	</tr>
+</table>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Matricula:</th>
+      <th scope="col">Nombre:</th>
+      <th scope="col">Domicilio:</th>
+      <th scope="col">Edad:</th>
+      <th scope="col">Nombre Tutor(a):</th>
+      <th scope="col">Teléfono:</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#payload}}
+    <tr class="table-primary">
+      <td>{{matricula}}</td>
+      <td>{{nombre}}</td>
+      <td>{{direccion}}</td>
+      <td>{{edad}}</td>
+      <td>{{tutor}}</td>
+      <td>{{telefono}}</td>
+      <td><a href="/temp/dbcatecismo/delete/{{matricula}}" class="btn btn-danger">Borrar</a></td>
+    </tr>
+    {{/payload}}
+  </tbody>
+ </table>
+
+  </body>
+</html>
